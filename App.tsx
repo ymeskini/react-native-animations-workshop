@@ -1,21 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Worklets } from './Worklets';
+import "react-native-gesture-handler";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { PanGestureView } from "./screens/PanGestures";
+import { Worklets } from "./screens/Worklets";
+import { Transitions } from "./screens/Transitions";
+import { HighOrderAnimation } from "./screens/HighOrderAnimation";
+import { Examples } from "./screens/Examples";
+import { CircularSlider } from "./screens/CircularSlider";
+import { Graph } from "./screens/Graph";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Worklets />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Graph">
+        <Stack.Screen name="Examples" component={Examples} />
+        <Stack.Screen name="Graph" component={Graph} />
+        <Stack.Screen name="CircularSlider" component={CircularSlider} />
+        <Stack.Screen name="HighOrderAnimation" component={HighOrderAnimation} />
+        <Stack.Screen name="Transitions" component={Transitions} />
+        <Stack.Screen name="Worklets" component={Worklets} />
+        <Stack.Screen name="PanGestures" component={PanGestureView} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
