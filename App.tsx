@@ -10,14 +10,16 @@ import { HighOrderAnimation } from "./screens/HighOrderAnimation";
 import { Examples } from "./screens/Examples";
 import { CircularSlider } from "./screens/CircularSlider";
 import { Graph } from "./screens/Graph";
+import { Swiping } from "./screens/Swiping";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Graph">
+      <Stack.Navigator initialRouteName="Swiping">
         <Stack.Screen name="Examples" component={Examples} />
+        <Stack.Screen name="Swiping" component={Swiping} />
         <Stack.Screen name="Graph" component={Graph} />
         <Stack.Screen name="CircularSlider" component={CircularSlider} />
         <Stack.Screen name="HighOrderAnimation" component={HighOrderAnimation} />
