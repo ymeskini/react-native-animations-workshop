@@ -20,7 +20,7 @@ export type Routes = {
   DragToSort: undefined;
   CubicBezier: undefined;
   ShapeMorphing: undefined;
-  // Accordion: undefined;
+  Accordion: undefined;
 };
 
 export const examples = [
@@ -68,10 +68,10 @@ export const examples = [
     screen: "ShapeMorphing",
     title: "☺️ Shape Morphing",
   },
-  //   {
-  //     screen: "Accordion",
-  //     title: "🗺 Accordion",
-  //   },
+    {
+      screen: "Accordion",
+      title: "🗺 Accordion",
+    },
 ] as const;
 
 const styles = StyleSheet.create({

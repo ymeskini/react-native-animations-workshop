@@ -15,14 +15,16 @@ import { DynamicSpring } from "./screens/DynamicSpring";
 import { DragToSort } from "./screens/DragToSort";
 import { CubicBezier } from "./screens/CubicBezier";
 import { ShapeMorphing } from "./screens/ShapeMorphing";
+import { Accordion } from "./screens/Accordion";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ShapeMorphing">
+      <Stack.Navigator initialRouteName="Examples">
         <Stack.Screen name="Examples" component={Examples} />
+        <Stack.Screen name="Accordion" component={Accordion} />
         <Stack.Screen name="ShapeMorphing" component={ShapeMorphing} />
         <Stack.Screen name="CubicBezier" component={CubicBezier} />
         <Stack.Screen name="DragToSort" component={DragToSort} />

@@ -1,9 +1,20 @@
-import { addCurve, createPath, serialize } from "react-native-redash";
+import Animated, {
+  SharedValue,
+  useAnimatedProps,
+} from "react-native-reanimated";
+import {
+  addCurve,
+  createPath,
+  interpolatePath,
+  serialize,
+} from "react-native-redash";
 import Svg, { Path } from "react-native-svg";
 
 interface MouthProps {
-  progress: number;
+  progress: SharedValue<number>;
 }
+
+const AnimatedPath = Animated.createAnimatedComponent(Path);
 
 const angryPath = createPath({ x: 13, y: 36 });
 addCurve(angryPath, {
@@ -41,11 +52,22 @@ addCurve(goodPath, {
   c2: { x: 97.4902012, y: 38.64845107 },
 });
 
-export const Mouth = ({}: MouthProps) => {
-  const d = serialize(angryPath);
+export const Mouth = ({ progress }: MouthProps) => {
+  const animatedProps = useAnimatedProps(() => ({
+    d: interpolatePath(
+      progress.value,
+      [0, 0.5, 1],
+      [angryPath, normalPath, goodPath]
+    ),
+  }));
   return (
     <Svg width={120} height={40} viewBox="0 0 120 40">
-      <Path fill="transparent" stroke="black" strokeWidth="4" d={d} />
+      <AnimatedPath
+        fill="transparent"
+        stroke="black"
+        strokeWidth="4"
+        animatedProps={animatedProps}
+      />
     </Svg>
   );
 };
