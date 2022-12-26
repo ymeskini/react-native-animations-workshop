@@ -18,8 +18,8 @@ export type Routes = {
   Swiping: undefined;
   DynamicSpring: undefined;
   DragToSort: undefined;
-  // Bezier: undefined;
-  // ShapeMorphing: undefined;
+  CubicBezier: undefined;
+  ShapeMorphing: undefined;
   // Accordion: undefined;
 };
 
@@ -56,18 +56,18 @@ export const examples = [
     screen: "Swiping",
     title: "💚 Swiping",
   },
-    {
-      screen: "DragToSort",
-      title: "📤 Drag To Sort",
-    },
-  //   {
-  //     screen: "Bezier",
-  //     title: "⤴️ Bézier",
-  //   },
-  //   {
-  //     screen: "ShapeMorphing",
-  //     title: "☺️ Shape Morphing",
-  //   },
+  {
+    screen: "DragToSort",
+    title: "📤 Drag To Sort",
+  },
+  {
+    screen: "CubicBezier",
+    title: "⤴️ Bézier",
+  },
+  {
+    screen: "ShapeMorphing",
+    title: "☺️ Shape Morphing",
+  },
   //   {
   //     screen: "Accordion",
   //     title: "🗺 Accordion",

@@ -13,20 +13,27 @@ import { Graph } from "./screens/Graph";
 import { Swiping } from "./screens/Swiping";
 import { DynamicSpring } from "./screens/DynamicSpring";
 import { DragToSort } from "./screens/DragToSort";
+import { CubicBezier } from "./screens/CubicBezier";
+import { ShapeMorphing } from "./screens/ShapeMorphing";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="DragToSort">
+      <Stack.Navigator initialRouteName="ShapeMorphing">
         <Stack.Screen name="Examples" component={Examples} />
+        <Stack.Screen name="ShapeMorphing" component={ShapeMorphing} />
+        <Stack.Screen name="CubicBezier" component={CubicBezier} />
         <Stack.Screen name="DragToSort" component={DragToSort} />
         <Stack.Screen name="DynamicSpring" component={DynamicSpring} />
         <Stack.Screen name="Swiping" component={Swiping} />
         <Stack.Screen name="Graph" component={Graph} />
         <Stack.Screen name="CircularSlider" component={CircularSlider} />
-        <Stack.Screen name="HighOrderAnimation" component={HighOrderAnimation} />
+        <Stack.Screen
+          name="HighOrderAnimation"
+          component={HighOrderAnimation}
+        />
         <Stack.Screen name="Transitions" component={Transitions} />
         <Stack.Screen name="Worklets" component={Worklets} />
         <Stack.Screen name="PanGestures" component={PanGestureView} />
