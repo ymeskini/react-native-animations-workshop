@@ -7,22 +7,21 @@ import { RectButton } from "react-native-gesture-handler";
 import { StyleGuide } from "../components/StyleGuide";
 
 export type Routes = {
-    Examples: undefined;
-    TheHeartOfTheMatter: undefined;
-    Worklets: undefined;
-    Transitions: undefined;
-    PanGestures: undefined;
-    HighOrderAnimation: undefined;
-    CircularSlider: undefined;
-    Graph: undefined;
-    // DragToSort: undefined;
-    // DynamicSpring: undefined;
-    Swiping: undefined;
-    // Bezier: undefined;
-    // ShapeMorphing: undefined;
-    // Accordion: undefined;
-  };
-  
+  Examples: undefined;
+  TheHeartOfTheMatter: undefined;
+  Worklets: undefined;
+  Transitions: undefined;
+  PanGestures: undefined;
+  HighOrderAnimation: undefined;
+  CircularSlider: undefined;
+  Graph: undefined;
+  Swiping: undefined;
+  DynamicSpring: undefined;
+  // DragToSort: undefined;
+  // Bezier: undefined;
+  // ShapeMorphing: undefined;
+  // Accordion: undefined;
+};
 
 export const examples = [
   {
@@ -49,30 +48,30 @@ export const examples = [
     screen: "Graph",
     title: "📈 Graph Interactions",
   },
-//   {
-//     screen: "DynamicSpring",
-//     title: "👨‍🔬 Dynamic Spring",
-//   },
-//   {
-//     screen: "DragToSort",
-//     title: "📤 Drag To Sort",
-//   },
+  {
+    screen: "DynamicSpring",
+    title: "👨‍🔬 Dynamic Spring",
+  },
   {
     screen: "Swiping",
     title: "💚 Swiping",
   },
-//   {
-//     screen: "Bezier",
-//     title: "⤴️ Bézier",
-//   },
-//   {
-//     screen: "ShapeMorphing",
-//     title: "☺️ Shape Morphing",
-//   },
-//   {
-//     screen: "Accordion",
-//     title: "🗺 Accordion",
-//   },
+  //   {
+  //     screen: "DragToSort",
+  //     title: "📤 Drag To Sort",
+  //   },
+  //   {
+  //     screen: "Bezier",
+  //     title: "⤴️ Bézier",
+  //   },
+  //   {
+  //     screen: "ShapeMorphing",
+  //     title: "☺️ Shape Morphing",
+  //   },
+  //   {
+  //     screen: "Accordion",
+  //     title: "🗺 Accordion",
+  //   },
 ] as const;
 
 const styles = StyleSheet.create({
