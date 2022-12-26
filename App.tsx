@@ -12,14 +12,16 @@ import { CircularSlider } from "./screens/CircularSlider";
 import { Graph } from "./screens/Graph";
 import { Swiping } from "./screens/Swiping";
 import { DynamicSpring } from "./screens/DynamicSpring";
+import { DragToSort } from "./screens/DragToSort";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="DynamicSpring">
+      <Stack.Navigator initialRouteName="DragToSort">
         <Stack.Screen name="Examples" component={Examples} />
+        <Stack.Screen name="DragToSort" component={DragToSort} />
         <Stack.Screen name="DynamicSpring" component={DynamicSpring} />
         <Stack.Screen name="Swiping" component={Swiping} />
         <Stack.Screen name="Graph" component={Graph} />
