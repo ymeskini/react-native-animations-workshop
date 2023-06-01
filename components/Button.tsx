@@ -1,6 +1,5 @@
 import * as React from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
-import { RectButton } from "react-native-gesture-handler";
+import { SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
 
 import { StyleGuide } from "./StyleGuide";
 import { Text } from "./Text";
@@ -24,7 +23,7 @@ export const Button = ({ label, primary, onPress }: ButtonProps) => {
   const color = primary ? "white" : undefined;
   const backgroundColor = primary ? StyleGuide.palette.primary : undefined;
   return (
-    <RectButton {...{ onPress }}>
+    <TouchableOpacity {...{ onPress }}>
       <SafeAreaView style={{ backgroundColor }} accessible>
         <View style={styles.container}>
           <Text type="headline" style={[styles.label, { color }]}>
@@ -32,6 +31,6 @@ export const Button = ({ label, primary, onPress }: ButtonProps) => {
           </Text>
         </View>
       </SafeAreaView>
-    </RectButton>
+    </TouchableOpacity>
   );
 };

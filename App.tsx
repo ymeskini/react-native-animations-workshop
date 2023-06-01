@@ -16,30 +16,57 @@ import { DragToSort } from "./screens/DragToSort";
 import { CubicBezier } from "./screens/CubicBezier";
 import { ShapeMorphing } from "./screens/ShapeMorphing";
 import { Accordion } from "./screens/Accordion";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
+import { View } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
+const withSafeArea =
+  (Component: React.ComponentType<any>) =>
+  (props: React.ComponentProps<any>) => {
+    const insets = useSafeAreaInsets();
+    return (
+      <View style={{ flex: 1, paddingTop: insets.top }}>
+        <Component {...props} />
+      </View>
+    );
+  };
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Examples">
-        <Stack.Screen name="Examples" component={Examples} />
-        <Stack.Screen name="Accordion" component={Accordion} />
-        <Stack.Screen name="ShapeMorphing" component={ShapeMorphing} />
-        <Stack.Screen name="CubicBezier" component={CubicBezier} />
-        <Stack.Screen name="DragToSort" component={DragToSort} />
-        <Stack.Screen name="DynamicSpring" component={DynamicSpring} />
-        <Stack.Screen name="Swiping" component={Swiping} />
-        <Stack.Screen name="Graph" component={Graph} />
-        <Stack.Screen name="CircularSlider" component={CircularSlider} />
-        <Stack.Screen
-          name="HighOrderAnimation"
-          component={HighOrderAnimation}
-        />
-        <Stack.Screen name="Transitions" component={Transitions} />
-        <Stack.Screen name="Worklets" component={Worklets} />
-        <Stack.Screen name="PanGestures" component={PanGestureView} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Examples">
+            <Stack.Screen
+              name="Examples"
+              options={{
+                headerShown: false,
+              }}
+              component={withSafeArea(Examples)}
+            />
+            <Stack.Screen name="Accordion" component={withSafeArea(Accordion)} />
+            <Stack.Screen name="ShapeMorphing" component={withSafeArea(ShapeMorphing)} />
+            <Stack.Screen name="CubicBezier" component={withSafeArea(CubicBezier)} />
+            <Stack.Screen name="DragToSort" component={withSafeArea(DragToSort)} />
+            <Stack.Screen name="DynamicSpring" component={withSafeArea(DynamicSpring)} />
+            <Stack.Screen name="Swiping" component={withSafeArea(Swiping)} />
+            <Stack.Screen name="Graph" component={withSafeArea(Graph)} />
+            <Stack.Screen name="CircularSlider" component={withSafeArea(CircularSlider)} />
+            <Stack.Screen
+              name="HighOrderAnimation"
+              component={withSafeArea(HighOrderAnimation)}
+            />
+            <Stack.Screen name="Transitions" component={withSafeArea(Transitions)} />
+            <Stack.Screen name="Worklets" component={withSafeArea(Worklets)} />
+            <Stack.Screen name="PanGestures" component={withSafeArea(PanGestureView)} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }

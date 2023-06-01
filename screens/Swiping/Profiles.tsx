@@ -1,12 +1,11 @@
 import React, { useCallback, useRef, useState } from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
-import { RectButton } from "react-native-gesture-handler";
+import { useSharedValue } from "react-native-reanimated";
 
 import type { ProfileModel } from "./Profile";
 import { Swipeable, Swiper } from "./Swipeable";
 import { StyleGuide } from "../../components/StyleGuide";
-import { useSharedValue } from "react-native-reanimated";
 
 const styles = StyleSheet.create({
   container: {
@@ -78,22 +77,22 @@ export const Profiles = ({ profiles: defaultProfiles }: ProfilesProps) => {
         })}
       </View>
       <View style={styles.footer}>
-        <RectButton
+        <TouchableOpacity
           style={styles.circle}
           onPress={() => {
             topCard.current?.swipeLeft();
           }}
         >
           <Icon name="x" size={32} color="#ec5288" />
-        </RectButton>
-        <RectButton
+        </TouchableOpacity>
+        <TouchableOpacity
           style={styles.circle}
           onPress={() => {
             topCard.current?.swipeRight();
           }}
         >
           <Icon name="heart" size={32} color="#6ee3b4" />
-        </RectButton>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

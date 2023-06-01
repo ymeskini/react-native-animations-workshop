@@ -1,8 +1,7 @@
 import * as React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import type { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
-import { RectButton } from "react-native-gesture-handler";
 
 import { StyleGuide } from "../components/StyleGuide";
 
@@ -68,10 +67,10 @@ export const examples = [
     screen: "ShapeMorphing",
     title: "☺️ Shape Morphing",
   },
-    {
-      screen: "Accordion",
-      title: "🗺 Accordion",
-    },
+  {
+    screen: "Accordion",
+    title: "🗺 Accordion",
+  },
 ] as const;
 
 const styles = StyleSheet.create({
@@ -97,14 +96,16 @@ export const Examples = () => {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       {examples.map((thumbnail) => (
-        <RectButton
+        <TouchableOpacity
           key={thumbnail.screen}
-          onPress={() => navigate(thumbnail.screen)}
+          onPress={() => {
+            navigate(thumbnail.screen);
+          }}
         >
           <View style={styles.thumbnail}>
             <Text style={styles.title}>{thumbnail.title}</Text>
           </View>
-        </RectButton>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   );
